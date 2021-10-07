@@ -1,0 +1,450 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #111;
+  color: #fff;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-perspective: 800px;
+          perspective: 800px;
+  overflow: hidden;
+}
+
+.fall {
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-animation: fallRotate 42s infinite linear;
+          animation: fallRotate 42s infinite linear;
+}
+
+@-webkit-keyframes fallRotate {
+  to {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+@keyframes fallRotate {
+  to {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+.wall {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#0007), to(#000c));
+  background-image: linear-gradient(#0007, #000c);
+  -webkit-animation: move 15s infinite linear;
+          animation: move 15s infinite linear;
+  bottom: -210px;
+}
+
+.wall:nth-child(odd) {
+  left: -10px;
+  -webkit-transform: translate(-50%, 50%) rotateY(90deg) rotateX(45deg) translatez(-20px) translateY(-220px);
+          transform: translate(-50%, 50%) rotateY(90deg) rotateX(45deg) translatez(-20px) translateY(-220px);
+}
+
+.wall:nth-child(even) {
+  left: 10px;
+  -webkit-transform: translate(-50%, 50%) rotateY(-90deg) rotateX(45deg) translatez(-20px) translateY(-220px);
+          transform: translate(-50%, 50%) rotateY(-90deg) rotateX(45deg) translatez(-20px) translateY(-220px);
+}
+
+.wall:nth-child(1) {
+  -webkit-animation-delay: -1.5s;
+          animation-delay: -1.5s;
+  background-color: #ef8f8f;
+}
+
+.wall:nth-child(2) {
+  -webkit-animation-delay: -3s;
+          animation-delay: -3s;
+  background-color: #efc98f;
+}
+
+.wall:nth-child(3) {
+  -webkit-animation-delay: -4.5s;
+          animation-delay: -4.5s;
+  background-color: #dcef8f;
+}
+
+.wall:nth-child(4) {
+  -webkit-animation-delay: -6s;
+          animation-delay: -6s;
+  background-color: #a3ef8f;
+}
+
+.wall:nth-child(5) {
+  -webkit-animation-delay: -7.5s;
+          animation-delay: -7.5s;
+  background-color: #8fefb6;
+}
+
+.wall:nth-child(6) {
+  -webkit-animation-delay: -9s;
+          animation-delay: -9s;
+  background-color: #8fefef;
+}
+
+.wall:nth-child(7) {
+  -webkit-animation-delay: -10.5s;
+          animation-delay: -10.5s;
+  background-color: #8fb6ef;
+}
+
+.wall:nth-child(8) {
+  -webkit-animation-delay: -12s;
+          animation-delay: -12s;
+  background-color: #a38fef;
+}
+
+.wall:nth-child(9) {
+  -webkit-animation-delay: -13.5s;
+          animation-delay: -13.5s;
+  background-color: #dc8fef;
+}
+
+.wall:nth-child(10) {
+  -webkit-animation-delay: -15s;
+          animation-delay: -15s;
+  background-color: #ef8fc9;
+}
+
+@-webkit-keyframes move {
+  from {
+    bottom: -1210px;
+  }
+  to {
+    bottom: 810px;
+  }
+}
+
+@keyframes move {
+  from {
+    bottom: -1210px;
+  }
+  to {
+    bottom: 810px;
+  }
+}
+
+.wall > div {
+  position: absolute;
+  background-color: inherit;
+}
+
+.wall .ceil {
+  width: 80px;
+  height: 80px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff7), to(#fff0));
+  background-image: linear-gradient(#fff7, #fff0);
+  -webkit-animation: wallCeil 15s infinite linear;
+          animation: wallCeil 15s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+  overflow: hidden;
+}
+
+.wall .ceil::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#000, #0000 50%);
+  -webkit-animation: shadow 15s infinite linear;
+          animation: shadow 15s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+}
+
+@-webkit-keyframes shadow {
+  0%,
+  48%,
+  53%,
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(80px) scale(2);
+            transform: translateY(80px) scale(2);
+  }
+  50% {
+    opacity: 0.25;
+    -webkit-transform: translateY(4px) scale(0.5);
+            transform: translateY(4px) scale(0.5);
+  }
+}
+
+@keyframes shadow {
+  0%,
+  48%,
+  53%,
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(80px) scale(2);
+            transform: translateY(80px) scale(2);
+  }
+  50% {
+    opacity: 0.25;
+    -webkit-transform: translateY(4px) scale(0.5);
+            transform: translateY(4px) scale(0.5);
+  }
+}
+
+.wall .top {
+  width: 80px;
+  -webkit-transform: rotateX(90deg);
+          transform: rotateX(90deg);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#0007), to(#fff7));
+  background-image: linear-gradient(#0007, #fff7);
+  -webkit-animation: wallHeight 15s infinite linear;
+          animation: wallHeight 15s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+}
+
+.wall .bottom {
+  bottom: 0;
+  width: 80px;
+  -webkit-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff0), to(#000c));
+  background-image: linear-gradient(#fff0, #000c);
+  -webkit-animation: wallHeight 15s infinite linear;
+          animation: wallHeight 15s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+}
+
+.wall .left {
+  bottom: 0;
+  height: 80px;
+  -webkit-transform: rotateY(-90deg);
+          transform: rotateY(-90deg);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  background-image: -webkit-gradient(linear, right top, left bottom, from(#fff3), to(#000c));
+  background-image: linear-gradient(to bottom left, #fff3, #000c);
+  -webkit-animation: wallWidth 15s infinite linear;
+          animation: wallWidth 15s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+}
+
+.wall .right {
+  bottom: 0;
+  right: 0;
+  height: 80px;
+  -webkit-transform: rotateY(90deg);
+          transform: rotateY(90deg);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#fff3), to(#000c));
+  background-image: linear-gradient(to bottom right, #fff3, #000c);
+  -webkit-animation: wallWidth 15s infinite linear;
+          animation: wallWidth 15s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+}
+
+@-webkit-keyframes wallCeil {
+  0%,
+  49.75%,
+  55%,
+  100% {
+    -webkit-transform: translateZ(20px);
+            transform: translateZ(20px);
+  }
+  50% {
+    -webkit-transform: translateZ(10px);
+            transform: translateZ(10px);
+  }
+}
+
+@keyframes wallCeil {
+  0%,
+  49.75%,
+  55%,
+  100% {
+    -webkit-transform: translateZ(20px);
+            transform: translateZ(20px);
+  }
+  50% {
+    -webkit-transform: translateZ(10px);
+            transform: translateZ(10px);
+  }
+}
+
+@-webkit-keyframes wallHeight {
+  0%,
+  49.75%,
+  55%,
+  100% {
+    height: 20px;
+  }
+  50% {
+    height: 10px;
+  }
+}
+
+@keyframes wallHeight {
+  0%,
+  49.75%,
+  55%,
+  100% {
+    height: 20px;
+  }
+  50% {
+    height: 10px;
+  }
+}
+
+@-webkit-keyframes wallWidth {
+  0%,
+  49.75%,
+  55%,
+  100% {
+    width: 20px;
+  }
+  50% {
+    width: 10px;
+  }
+}
+
+@keyframes wallWidth {
+  0%,
+  49.75%,
+  55%,
+  100% {
+    width: 20px;
+  }
+  50% {
+    width: 10px;
+  }
+}
+
+.ballArm {
+  position: absolute;
+  bottom: -210px;
+  width: 20px;
+  height: 240px;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-animation: armRotate 1.5s infinite linear alternate;
+          animation: armRotate 1.5s infinite linear alternate;
+}
+
+@-webkit-keyframes armRotate {
+  from {
+    -webkit-transform: translateX(-50%) rotate(-45deg);
+            transform: translateX(-50%) rotate(-45deg);
+  }
+  to {
+    -webkit-transform: translateX(-50%) rotate(45deg);
+            transform: translateX(-50%) rotate(45deg);
+  }
+}
+
+@keyframes armRotate {
+  from {
+    -webkit-transform: translateX(-50%) rotate(-45deg);
+            transform: translateX(-50%) rotate(-45deg);
+  }
+  to {
+    -webkit-transform: translateX(-50%) rotate(45deg);
+            transform: translateX(-50%) rotate(45deg);
+  }
+}
+
+.ball {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 10%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-animation: ballRotateZ 1.5s infinite linear alternate;
+          animation: ballRotateZ 1.5s infinite linear alternate;
+}
+
+@-webkit-keyframes ballRotateZ {
+  from {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  to {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+}
+
+@keyframes ballRotateZ {
+  from {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  to {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+}
+
+.ball::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-image: radial-gradient(circle at top, #fff, #222);
+  border-radius: 50%;
+  -webkit-animation: ballRotateY 42s infinite linear;
+          animation: ballRotateY 42s infinite linear;
+}
+
+@-webkit-keyframes ballRotateY {
+  from {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(-360deg);
+            transform: rotateY(-360deg);
+  }
+}
+
+@keyframes ballRotateY {
+  from {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(-360deg);
+            transform: rotateY(-360deg);
+  }
+}
+/*# sourceMappingURL=sass.css.map */
