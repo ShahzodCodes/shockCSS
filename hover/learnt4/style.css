@@ -34,3 +34,6 @@ body {
 	border: 8px solid transparent;
 	border-bottom: 8px solid #000;
 }
+span {
+	cursor: pointer;
+}
